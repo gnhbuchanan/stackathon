@@ -9,9 +9,9 @@ export const Panda = () => {
 
   //runs after every DOM element is loaded
   useEffect(() => {
-    TweenMax.to(panda, 3, {
+    TweenMax.to(panda, 6, {
       opacity: 1,
-      y: -70,
+      y: -150,
       ease: Power3.easeOut
     })
   }, [])

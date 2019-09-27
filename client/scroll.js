@@ -2,6 +2,9 @@ import React, {Component} from 'react'
 import Panda from './stackathon/Panda'
 import Text1 from './stackathon/Text1'
 import Circles from './stackathon/Circles'
+import Flag from './stackathon/Flag'
+import End from './stackathon/End'
+import Parallax from './stackathon/Parallax'
 
 class Scroll extends Component {
   render() {
@@ -10,6 +13,9 @@ class Scroll extends Component {
         <Panda />
         <Text1 />
         <Circles />
+        <Parallax />
+        <Flag />
+        <End />
       </div>
     )
   }

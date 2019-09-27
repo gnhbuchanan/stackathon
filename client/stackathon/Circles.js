@@ -21,13 +21,16 @@ export const Circles = () => {
 
   useEffect(() => {
     TweenMax.to(container, 0, {css: {visibility: 'visible'}})
+
     TweenMax.from(circle, 1.5, {opacity: 0, x: 250, ease: Power3.easeOut})
+
     TweenMax.from(circleRed, 1.5, {
       opacity: 0,
       x: 250,
       ease: Power3.easeOut,
       delay: 0.4
     })
+
     TweenMax.from(circleGreen, 1.5, {
       opacity: 0,
       x: 250,
