@@ -1,13 +1,14 @@
 import React from 'react'
 
-import {Navbar} from './components'
-import Routes from './routes'
+import Scroll from './scroll'
 
 const App = () => {
   return (
     <div>
-      <Navbar />
-      <Routes />
+      <header>
+        <h3>stackathon</h3>
+      </header>
+      <Scroll />
     </div>
   )
 }

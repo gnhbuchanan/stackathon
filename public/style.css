@@ -1,5 +1,6 @@
 body {
   font-family: sans-serif;
+  margin: 0;
 }
 
 a {
@@ -18,4 +19,89 @@ nav a {
 form div {
   margin: 1em;
   display: inline-block;
+}
+
+header h3 {
+  justify-content: center;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+  background-color: white;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+}
+
+/* STACKATHON CLASSES */
+
+.scene {
+  height: 100vh;
+  display: flex;
+}
+
+.centerScene {
+  justify-content: center;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+  background-color: green;
+  margin: 0;
+  display: flex;
+}
+
+/* PANDA SCENE */
+
+.panda {
+  width: 30%;
+  opacity: 0;
+}
+
+/* TEXT1 SCENE */
+
+.text1 {
+  height: 100vh;
+  background-color: blue;
+}
+
+.h1 {
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  height: 23vh;
+  font-size: 12vh;
+  margin: 0;
+  /* border-style: dotted; */
+}
+
+.hide {
+  position: absolute;
+  z-index: 200;
+  top: 25vh;
+}
+
+/* CIRCLES */
+
+.circle-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(207, 88, 207);
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+}
+
+.circle {
+  width: 75px;
+  height: 75px;
+  border-radius: 100%;
+  background-color: yellow;
+  font-family: 'Montserrat', sans-serif;
+  margin: 50px;
+}
+
+.circle.red {
+  background-color: red;
+}
+
+.circle.green {
+  background-color: green;
 }
