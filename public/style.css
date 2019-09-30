@@ -73,6 +73,7 @@ header h3 {
 
 .hide {
   position: absolute;
+  color: yellow;
   z-index: 200;
   top: 25vh;
 }
@@ -148,10 +149,10 @@ header h3 {
 }
 
 .star {
-  height: 80px;
-  width: 80px;
-  border-radius: 100%;
-  background-color: red;
+  height: 125px;
+  width: 125px;
+  /* border-radius: 100%;
+  background-color: red; */
   margin: 70px;
 }
 
@@ -183,4 +184,20 @@ header h3 {
   max-width: 1140px;
   position: relative;
   z-index: 2;
+}
+
+/* BEE */
+
+.bee-container {
+  height: 100vh;
+  background-color: skyblue;
+  position: relative;
+  overflow: hidden;
+}
+
+.bee {
+  width: 15%;
+  top: 50%;
+  left: -20%;
+  position: absolute;
 }

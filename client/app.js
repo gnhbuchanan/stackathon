@@ -6,7 +6,7 @@ const App = () => {
   return (
     <div>
       <header>
-        <h3>stackathon</h3>
+        <h3>Greensock with ScrollMagic</h3>
       </header>
       <Scroll />
     </div>

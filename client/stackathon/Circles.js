@@ -1,74 +1,92 @@
-import React, {useRef, useEffect, useState} from 'react'
-import {TweenMax, Power3} from 'gsap'
+import React, {useRef, useEffect, useState, Component} from 'react'
+import {TweenMax, Power3, TimelineMax} from 'gsap'
+import ScrollMagic from 'scrollmagic'
 
-export const Circles = () => {
-  let container = useRef(null)
-  let circle = useRef(null)
-  let circleRed = useRef(null)
-  let circleGreen = useRef(null)
+import 'imports-loader?define=>false!scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators'
+import 'imports-loader?define=>false!scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap'
 
-  const [state, setState] = useState(false)
+class Circles extends Component {
+  constructor(props) {
+    super(props)
 
-  const expand = () => {
-    TweenMax.to(circleRed, 0.8, {width: 200, height: 200, ease: Power3.easeOut})
-    setState(true)
+    this.state = {
+      clicked: false
+    }
+
+    this.controller = new ScrollMagic.Controller({addIndicators: true})
+
+    this.timeline = new TimelineMax()
+
+    this.expand = this.expand.bind(this)
+    this.shrink = this.shrink.bind(this)
   }
 
-  const shrink = () => {
-    TweenMax.to(circleRed, 0.8, {width: 75, height: 75, ease: Power3.easeOut})
-    setState(false)
-  }
+  componentDidMount() {
+    const container = TweenMax.to('#container', 0, {
+      css: {visibility: 'visible'}
+    })
 
-  useEffect(() => {
-    TweenMax.to(container, 0, {css: {visibility: 'visible'}})
+    const firstCircle = TweenMax.from('#first', 1.5, {
+      opacity: 0,
+      x: 250,
+      ease: Power3.easeOut
+    })
 
-    TweenMax.from(circle, 1.5, {opacity: 0, x: 250, ease: Power3.easeOut})
-
-    TweenMax.from(circleRed, 1.5, {
+    const secondCircle = TweenMax.from('#second', 1.5, {
       opacity: 0,
       x: 250,
       ease: Power3.easeOut,
       delay: 0.4
     })
 
-    TweenMax.from(circleGreen, 1.5, {
+    const thirdCircle = TweenMax.from('#third', 1.5, {
       opacity: 0,
       x: 250,
       ease: Power3.easeOut,
       delay: 0.8
     })
-  }, [])
 
-  return (
-    <div
-      ref={el => {
-        container = el
-      }}
-      className="circle-container"
-    >
-      <div
-        ref={el => {
-          circle = el
-        }}
-        className="circle"
-      />
+    this.timeline
+      .add(container)
+      .add(firstCircle)
+      .add(secondCircle)
+      .add(thirdCircle)
 
-      <div
-        onClick={state !== true ? expand : shrink}
-        ref={el => {
-          circleRed = el
-        }}
-        className="circle red"
-      />
+    new ScrollMagic.Scene({
+      triggerElement: '.circle-container',
+      triggerHook: 0,
+      duration: '50%'
+    })
+      .setTween(this.timeline)
+      .setPin('#container')
+      .addTo(this.controller)
+  }
 
-      <div
-        ref={el => {
-          circleGreen = el
-        }}
-        className="circle green"
-      />
-    </div>
-  )
+  expand() {
+    TweenMax.to('#second', 0.8, {width: 200, height: 200, ease: Power3.easeOut})
+    this.setState({clicked: true})
+  }
+
+  shrink() {
+    TweenMax.to('#second', 0.8, {width: 75, height: 75, ease: Power3.easeOut})
+    this.setState({clicked: false})
+  }
+
+  render() {
+    return (
+      <div id="container" className="circle-container">
+        <div id="first" className="circle" />
+
+        <div
+          onClick={this.state.clicked !== true ? this.expand : this.shrink}
+          id="second"
+          className="circle red"
+        />
+
+        <div id="third" className="circle green" />
+      </div>
+    )
+  }
 }
 
 export default Circles

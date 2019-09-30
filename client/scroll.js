@@ -5,6 +5,7 @@ import Circles from './stackathon/Circles'
 import Flag from './stackathon/Flag'
 import End from './stackathon/End'
 import Parallax from './stackathon/Parallax'
+import Bee from './stackathon/Bee'
 
 class Scroll extends Component {
   render() {
@@ -15,6 +16,7 @@ class Scroll extends Component {
         <Circles />
         <Parallax />
         <Flag />
+        <Bee />
         <End />
       </div>
     )

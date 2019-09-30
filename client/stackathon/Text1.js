@@ -12,7 +12,7 @@ class Text1 extends Component {
 
     this.timeline = new TimelineMax()
 
-    this.controller = new ScrollMagic.Controller()
+    this.controller = new ScrollMagic.Controller({addIndicators: true})
   }
 
   componentDidMount() {
@@ -60,25 +60,25 @@ class Text1 extends Component {
       <div className="text1">
         <h1 className="h1">
           <span id="text1" className="hide">
-            MARY HAD
+            EAT SWEDISH
           </span>
         </h1>
 
         <h1 className="h1">
           <span id="text2" className="hide">
-            A LITTLE
+            MEATBALLS
           </span>
         </h1>
 
         <h1 className="h1">
           <span id="text3" className="hide">
-            LAMB WHO'S
+            WHEN SHOPPING
           </span>
         </h1>
 
         <h1 className="h1">
           <span id="text4" className="hide">
-            FLEECE WAS
+            AT IKEA
           </span>
         </h1>
       </div>
